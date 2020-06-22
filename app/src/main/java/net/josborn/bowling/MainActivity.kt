@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        viewAdapter = ScoreCardAdapter(ScoreSheet.getFrames(), this)
+        viewAdapter = ScoreCardAdapter(this)
         recyclerView = findViewById<RecyclerView>(R.id.frameList).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView

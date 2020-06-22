@@ -9,8 +9,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.recyclerview.widget.RecyclerView
 
 class ScoreCardAdapter(
-    private val frames: MutableList<Frame>,
-    val mContext: Context
+    private val mContext: Context
 ) :
     RecyclerView.Adapter<ScoreCardAdapter.MyViewHolder>() {
 
@@ -128,7 +127,7 @@ class ScoreCardAdapter(
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = frames.size
+    override fun getItemCount() = mFrames.size
 
 
     private fun showTooManyPins(pins: Int) {
