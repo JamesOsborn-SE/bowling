@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/scoreButton"
+        android:id="@+id/score_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:onClick="getScore"
@@ -17,18 +17,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/scoreTotalText"
+        android:id="@+id/score_total_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/score"
-        app:layout_constraintTop_toBottomOf="@+id/scoreButton"/>
+        app:layout_constraintTop_toBottomOf="@+id/score_button"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/frameList"
+        android:id="@+id/frame_list"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreTotalText"
+        app:layout_constraintTop_toBottomOf="@+id/score_total_text"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

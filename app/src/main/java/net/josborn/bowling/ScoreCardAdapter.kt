@@ -29,7 +29,7 @@ class ScoreCardAdapter(
     ): ScoreCardAdapter.MyViewHolder {
         // create a new view
         val linearLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.score, parent, false) as LinearLayout
+            .inflate(R.layout.frame, parent, false) as LinearLayout
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(linearLayout)
@@ -37,14 +37,13 @@ class ScoreCardAdapter(
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(vh: MyViewHolder, position: Int) {
-        val mFirstShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.ShotOne)!!
-        val mFirstShotLabel: TextView = vh.linearLayout.findViewById(R.id.ShotOneLabel)!!
-        val mSecondShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.ShotTwo)!!
-        val mThirdShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.ShotThree)!!
-        val mFrameNumber: TextView = vh.linearLayout.findViewById(R.id.frameLabel)!!
+        val firstShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.first_shot)!!
+        val secondShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.second_shot)!!
+        val thirdShot: AppCompatEditText = vh.linearLayout.findViewById(R.id.third_shot)!!
+        val frameNumber: TextView = vh.linearLayout.findViewById(R.id.frame_number_label)!!
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        mFirstShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
+        firstShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
             val editText = v as EditText
             var newValue: Int? = null
             when {
@@ -62,7 +61,7 @@ class ScoreCardAdapter(
             if (newValue == null)
                 editText.text = null
         }
-        mSecondShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
+        secondShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
 
             val editText = v as EditText
             var newValue: Int? = null
@@ -83,7 +82,7 @@ class ScoreCardAdapter(
 
 
         }
-        mThirdShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
+        thirdShot.onFocusChangeListener = View.OnFocusChangeListener { v, _ ->
             val editText = v as EditText
             var newValue: Int? = null
             when {
@@ -104,25 +103,25 @@ class ScoreCardAdapter(
 
         mScoreSheet.getScore()
 
-        mFrameNumber.text = mFrames[position].mFrameNumber.toString()
+        frameNumber.text = mFrames[position].mFrameNumber.toString()
 
         if (mFrames[position].mFirstShot.mNumberOfPinsDowned != null) {
-            mFirstShot.setText(mFrames[position].mFirstShot.mNumberOfPinsDowned.toString())
+            firstShot.setText(mFrames[position].mFirstShot.mNumberOfPinsDowned.toString())
         } else {
-            mFirstShot.setText("")
+            firstShot.setText("")
         }
         if (mFrames[position].mSecondShot.mNumberOfPinsDowned != null)
-            mSecondShot.setText(mFrames[position].mSecondShot.mNumberOfPinsDowned.toString())
+            secondShot.setText(mFrames[position].mSecondShot.mNumberOfPinsDowned.toString())
         else
-            mSecondShot.setText("")
+            secondShot.setText("")
         if (mFrames[position].mThirdShot?.mNumberOfPinsDowned != null)
-            mThirdShot.setText(mFrames[position].mThirdShot?.mNumberOfPinsDowned.toString())
+            thirdShot.setText(mFrames[position].mThirdShot?.mNumberOfPinsDowned.toString())
 
         if (mFrames[position].mFrameNumber != 10) {
-            mThirdShot.setText("")
-            mThirdShot.visibility = View.GONE
+            thirdShot.setText("")
+            thirdShot.visibility = View.GONE
         } else {
-            mThirdShot.visibility = View.VISIBLE
+            thirdShot.visibility = View.VISIBLE
         }
     }
 
