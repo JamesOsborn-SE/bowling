@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Bowling</string>
+    <string name="third_shot_in_frame">Bonus Shot in frame</string>
+    <string name="third_shot">3</string>
+    <string name="second_shot_in_frame">Second Shot in frame</string>
+    <string name="second_shot">2</string>
+    <string name="first_shot_in_frame">First Shot in frame</string>
+    <string name="first_shot">1</string>
+    <string name="frame"><b>%1$d</b></string>
+    <string name="click_for_score">click for score</string>
+    <string name="score">Score: %1$d</string>
+</resources>
